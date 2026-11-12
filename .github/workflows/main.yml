@@ -13,10 +13,13 @@ jobs:
         with:
           distribution: temurin
           java-version: 21
-          cache: maven
       - name: Build with Maven
-        run: mvn -B package
+        run: |
+          POM=$(find . -name pom.xml -not -path "*/target/*" | head -n 1)
+          if [ -z "$POM" ]; then echo "No pom.xml found in the repo - upload it!"; exit 1; fi
+          echo "Using $POM"
+          mvn -B package --file "$POM"
       - uses: actions/upload-artifact@v4
         with:
           name: AltarKits
-          path: target/*.jar
+          path: "**/target/*.jar"
