@@ -1,0 +1,42 @@
+name: AltarKits
+main: com.altarkits.KitsPlugin
+version: 1.1.0
+api-version: '1.21'
+description: Altar kits GUI with coins, cooldowns, rank kits, AltarSMP legendary kits, a daily Altar Reroller and kit bots.
+softdepend: [AltarSMP]
+commands:
+  kits:
+    description: Open the kits menu
+    aliases: [kit, altarkits]
+  kitadmin:
+    description: Edit kits (needs kit.admin)
+    aliases: [kadmin]
+    permission: kit.admin
+  bot:
+    description: Spawn / remove kit bots (needs kit.admin)
+    permission: kit.admin
+  coins:
+    description: Check your coin balance
+    usage: /coins [player]
+    aliases: [altarcoins]
+permissions:
+  kit.admin:
+    description: Edit kits and spawn bots
+    default: op
+  kit.bypass.cooldown:
+    description: Ignore kit cooldowns
+    default: false
+  kit.rank.vip:
+    default: false
+  kit.rank.vipplus:
+    default: false
+  kit.rank.platinum:
+    default: false
+  kit.rank.elite:
+    default: false
+  kit.rib:
+    description: Lets you use the RIB kit
+    default: false
+  kit.bypass.cost:
+    description: Claim kits without paying coins
+    default: false
